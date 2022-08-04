@@ -1,0 +1,8 @@
+C:\soft\projects\Arma187.server_save — копия\bin\Debug\ru-RU\Arma187.server.msi
+C:\soft\projects\Arma187.server_save — копия\bin\Debug\ru-RU\Arma187.server.wixpdb
+obj\Debug\MyWixUI_InstallDir.wixobj
+obj\Debug\PasswordDlg.wixobj
+obj\Debug\Product.wixobj
+obj\Debug\Arma187.server.wixproj.BindContentsFileListru-RU.txt
+obj\Debug\Arma187.server.wixproj.BindOutputsFileListru-RU.txt
+obj\Debug\Arma187.server.wixproj.BindBuiltOutputsFileListru-RU.txt

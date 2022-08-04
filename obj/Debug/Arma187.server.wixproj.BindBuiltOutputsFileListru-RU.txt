@@ -1,0 +1,2 @@
+C:\soft\projects\Arma187.server_save — копия\bin\Debug\ru-RU\Arma187.server.msi
+C:\soft\projects\Arma187.server_save — копия\bin\Debug\ru-RU\Arma187.server.wixpdb

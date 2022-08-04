@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+
+  <?if $(var.Platform)=x64?>
+  <?define ProductCode="{61961713-D714-4E88-B461-3A318B8A27F0}"?>
+  <?else?>
+  <?define ProductCode="{54C43699-B33E-4317-9E83-84F96B8649D5}"?>
+  <?endif?>
+
+  <?define ProductName="Project.name.MSI"?>
+  <?define Description="Описание продукта"?>
+
+  <?define BuildVersion=1.0.0.1?>
+  <?define Manufacturer=Название компании?>
+
+	<Product Id="$(var.ProductCode)"
+	         Name="$(var.ProductName)"
+	         Codepage="1251"
+	         Language="1049"
+	         Version="$(var.BuildVersion)"
+	         Manufacturer="$(var.Manufacturer)"
+	         UpgradeCode="8F35D2B7-2BA6-4793-AB41-13190DB65054">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+	  <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+	  <MediaTemplate EmbedCab="yes" />
+
+	  <Icon Id="AppIcon" SourceFile="logo.ico"/>
+	  <Property Id="ARPPRODUCTICON" Value="AppIcon"/>
+
+	  <WixVariable Id="WixUILicenseRtf" Overridable="yes" Value="EULA-RU.rtf"/>
+	  <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION"/>
+    
+    <!--Тут указываем свою UI цепочку диалоговых окон-->
+	  <UIRef Id="MyWixUI_InstallDir"/>
+
+    
+	  <WixVariable Id="WixUIBannerBmp" Value="Banner.bmp" />
+	  <WixVariable Id="WixUIDialogBmp" Value="Dialog.bmp" />
+    
+	  <Property Id="ApplicationFolderName" Value="My Application Folder" />
+	  <Property Id="WixAppFolder" Value="WixPerMachineFolder" />
+ 
+	  <Feature Id="ProductFeature" Title="Project.name.MSI" Level="1">
+	    <ComponentGroupRef Id="ProductComponents" />
+	    <ComponentRef Id="setPermissionsToFolder"/>
+	    <ComponentRef Id="commandComponent"/>
+	    <ComponentRef Id="readmeComponent"/>
+    </Feature>
+
+    <!--Описываем экшены-->
+    <CustomAction Id="saveUserRootPwd" Directory="INSTALLLOCATION" ExeCommand="cmd.exe /c &quot;command.cmd [PROPPWDUSER] [PROPPWDROOT]&quot;" Execute="deferred" Impersonate="no" Return="check"/>
+	  <CustomAction Id="runNotepad" Directory="INSTALLLOCATION" ExeCommand="notepad.exe readme.txt" Execute="deferred" Impersonate="no" Return="asyncNoWait"/>
+
+    <InstallExecuteSequence>
+      <!--Запустить после установки файлов-->
+	    <Custom Action="saveUserRootPwd" After="InstallFiles">NOT Installed AND NOT REMOVE</Custom>
+	    <Custom Action="runNotepad" After="saveUserRootPwd">NOT Installed AND NOT REMOVE</Custom>
+	    <!--<ScheduleReboot After="InstallFinalize"/>-->
+	  </InstallExecuteSequence>
+
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+		  <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLLOCATION" Name="Project.name">
+          <!--определяем аттрибуты для директории Project.name-->
+				  <Component Id="setPermissionsToFolder" Guid="{61FA731E-9DD7-4E79-934A-F83DB97E2CBC}">
+				    <CreateFolder>
+				      <Permission User="Everyone" WriteExtendedAttributes="yes" WriteAttributes="yes" CreateFile="yes" CreateChild="yes" GenericAll="yes"/>
+            </CreateFolder> 
+				  </Component>
+          <!--Тут описываем файлы, которые хотим установить при инсталяции-->
+          <Component Id="commandComponent" Guid="{9C71CCFB-4F5C-429E-8641-F58AB6160FE5}">
+            <File Id="command" Source="$(var.ProjectDir)command.cmd" />
+          </Component>
+          <Component Id="readmeComponent" Guid="{1BDCD955-8B8D-41EF-9132-B0C6F25C2B0E}">
+            <File Id="readme" Source="$(var.ProjectDir)readme.txt" />
+          </Component>
+        </Directory>
+			</Directory>
+		</Directory>
+
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLLOCATION">
+		</ComponentGroup>
+	</Fragment>
+
+  
+</Wix>

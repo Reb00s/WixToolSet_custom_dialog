@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="ru-RU" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+	<String Id="PasswordTitle">Настройка сервера</String>
+  <String Id="PasswordTitleDescription">Укажите информацию и нажмите кнопку "Далее"</String>
+  <String Id="PasswordDialogTitle">Установка [ProductName]</String>
+  <String Id="PasswordDialogInfo">Укажите пароли пользователей базы данных:</String>
+  <String Id="PasswordDefaultPwdDescription">Для обеспечения инфоромационной безопасности и сохранности корпоротивной информации, необходимо заменить пароли на более сложные</String>
+
+  <String Id="PasswordEnter">Введите пароль:</String>
+
+  <String Id="PasswordButtonNext">Далее</String>
+  <String Id="PasswordButtonBack">Назад</String>
+  <String Id="PasswordButtonCancel">Отмена</String>
+
+  <String Id="LabelUserName">Пользователь:</String>
+  <String Id="LabelPasswordUser">Пароль для пользователя:</String>
+  <String Id="LabelPasswordRoot">Пароль для рута:</String>
+
+  <String Id="NetRequired">Для установки данного приложения требуется .NET Framework 4.6 или более поздняя версия. Пожалуйста установите приложение и запустите установку повторно.</String>
+
+</WixLocalization>

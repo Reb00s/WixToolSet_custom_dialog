@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) .NET Foundation and contributors. All rights reserved. Licensed under the Microsoft Reciprocal License. See LICENSE.TXT file in the project root for full license information. -->
+
+
+<WixLocalization Culture="ru-ru" Language="1049" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+  <String Id="Caption">[WixBundleName] Установка</String>
+  <String Id="Title">[WixBundleName]</String>
+  <String Id="InstallVersion">Версия [WixBundleVersion]</String>
+  <String Id="ConfirmCancelMessage">Вы уверены, что хотите выйти?</String>
+  <String Id="ExecuteUpgradeRelatedBundleMessage">Предыдущая версия</String>
+  <String Id="HelpHeader">Помощь в установке</String>
+  <String Id="HelpText">/install | /repair | /uninstall | /layout [directory] - установка, изменения, удаление или
+   создание полной локальной копии сборки в директории. Установка по умолчанию.
+
+/passive | /quiet -  показать минимальный интерфейс установщика. По умолчанию интерфйс показывается..
+
+/norestart   - не выполнять перезагрузку. По умолчанию, установщик предупредит до перезагрузки..
+/log log.txt - логирование в указанный файл. По умолчанию файл логирования создается в %TEMP%.</String>
+  <String Id="HelpCloseButton">&amp;Отмена</String>
+  <String Id="InstallAcceptCheckbox">Я &amp;принимаю условия соглашения</String>
+  <String Id="InstallOptionsButton">&amp;Опции</String>
+  <String Id="InstallInstallButton">&amp;Установить</String>
+  <String Id="InstallCloseButton">&amp;Закрыть</String>
+  <String Id="OptionsHeader">Опции установщика</String>
+  <String Id="OptionsLocationLabel">Место установки:</String>
+
+  <String Id="OptionsUserPwd">Пароль для пользователя sa:</String>
+  <String Id="OptionsRootPwd">Пароль для пользователя root:</String>
+
+  <String Id="OptionsBrowseButton">&amp;Обзор</String>
+  <String Id="OptionsOkButton">&amp;Ок</String>
+  <String Id="OptionsCancelButton">&amp;Отмена</String>
+  <String Id="ProgressHeader">Прогресс установки</String>
+  <String Id="ProgressLabel">Процесс:</String>
+  <String Id="OverallProgressPackageText">Инициализация...</String>
+  <String Id="ProgressCancelButton">&amp;Отмена</String>
+  <String Id="ModifyHeader">Изменения установки</String>
+  <String Id="ModifyRepairButton">&amp;Восстановить</String>
+  <String Id="ModifyUninstallButton">&amp;Удалить</String>
+  <String Id="ModifyCloseButton">&amp;Закрыть</String>
+  <String Id="SuccessRepairHeader">Восстановление успешно завершено</String>
+  <String Id="SuccessUninstallHeader">Удаление успешно завершено</String>
+  <String Id="SuccessInstallHeader">Установка успешно завершена</String> 
+  <String Id="SuccessHeader">Установка завершена</String>	
+  <String Id="SuccessLaunchButton">&amp;Запуск</String>
+  <String Id="SuccessRestartText">Необходимо перезагрузить компьютер перед использованием приложения.</String>
+  <String Id="SuccessRestartButton">&amp;Перезагрузить</String>
+  <String Id="SuccessCloseButton">&amp;Закрыть</String>
+  <String Id="FailureHeader">Ошибка в установке</String>
+  <String Id="FailureInstallHeader">Ошибка в установке</String>
+  <String Id="FailureUninstallHeader">Ошибка при удалении</String>
+  <String Id="FailureRepairHeader">Ошибка при починке</String> 
+  <String Id="FailureHyperlinkLogText">Один или несколько компонентов не были установлены. Пожалуйста исправте ошибки и повторите установку. Более детально описано в &lt;a href="#"&gt;лог файле&lt;/a&gt;.</String>
+  <String Id="FailureRestartText">Необходимо перезагрузить компьютер для завершения отмены установки приложения.</String>
+  <String Id="FailureRestartButton">&amp;Перезагрузить</String>
+  <String Id="FailureCloseButton">&amp;Закрыть</String>
+  <String Id="FilesInUseHeader">Файлы используются</String>
+  <String Id="FilesInUseLabel">Следующие приложения используют файлы, которые необходимо обновить:</String>
+  <String Id="FilesInUseCloseRadioButton">Закрыть &amp;приложения и попытаться перезапутить их.</String>
+  <String Id="FilesInUseDontCloseRadioButton">&amp;Не закрывайте приложения. Потребуется перезагрузка.</String>
+  <String Id="FilesInUseOkButton">&amp;Ок</String>
+  <String Id="FilesInUseCancelButton">&amp;Отмена</String>
+  <String Id="ErrorFailNoActionReboot">Перезагрузка не требуется.</String>
+</WixLocalization>

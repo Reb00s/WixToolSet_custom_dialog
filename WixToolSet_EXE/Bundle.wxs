@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
+  <Bundle Name="Project.name.EXE"
+	        Version="1.0.0"
+	        Manufacturer="Название компании"
+	        UpgradeCode="FCDAF831-823D-4A1F-87DB-13B5E5B129BD">
+    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense">
+      <bal:WixStandardBootstrapperApplication
+		    LicenseFile="EULA-RU.rtf"
+		    LogoFile="logo.ico"
+		    SuppressRepair="no"
+        ThemeFile="MyRtfLargeTheme.xml"
+        LocalizationFile="MyRtfTheme.wxl"
+        ShowVersion="yes"/>
+    </BootstrapperApplicationRef>
+
+    <Variable Name="UserPwdVariable" Type="string" bal:Overridable="yes" Value="[UserPwdEditbox]" Hidden="yes" />
+    <Variable Name="RootPwdVariable" Type="string" bal:Overridable="yes" Value="[RootPwdEditbox]" Hidden="yes" />
+
+    <Chain>
+      <!--Тут мы указываем программы или пакеты, которые будут предварительно установлены-->
+      <!--Для примера покажу тихую установку MS SQL Server 2016-->
+
+      <!--<ExePackage Id="installServer"
+                  Compressed="no"
+                  DisplayName="Установка SQL Server Express 2016"
+                  PerMachine="yes"
+                  Cache="yes"
+                  Vital="yes"
+                  Permanent="no"
+                  InstallCommand='/IACCEPTSQLSERVERLICENSETERMS /HIDECONSOLE /INSTANCEID="$(var.InstanceName)" /ACTION="Install" /FEATURES=SQLENGINE /TCPENABLED="1" /HELP="False" /INDICATEPROGRESS="False" /QUIET="True" /QUIETSIMPLE="False" /ERRORREPORTING="False" /SQMREPORTING="False" /INSTANCENAME="$(var.InstanceName)" /AGTSVCSTARTUPTYPE="Manual" /ISSVCSTARTUPTYPE="Automatic" /ISSVCACCOUNT="NT AUTHORITY\NetworkService" /ASSVCSTARTUPTYPE="Automatic" /ASCOLLATION="Latin1_General_CI_AS" /ASDATADIR="Data" /ASLOGDIR="Log" /ASBACKUPDIR="Backup" /ASTEMPDIR="Temp" /ASCONFIGDIR="Config" /ASPROVIDERMSOLAP="1" /SQLSVCSTARTUPTYPE="Automatic" /FILESTREAMLEVEL="0" /ENABLERANU="True" /SQLCOLLATION="SQL_Latin1_General_CP1_CI_AS" /SQLSVCACCOUNT="NT AUTHORITY\NETWORK SERVICE" /ADDCURRENTUSERASSQLADMIN="True" /TCPENABLED="0" /NPENABLED="0" /BROWSERSVCSTARTUPTYPE="Disabled" /RSSVCSTARTUPTYPE="Automatic" /RSINSTALLMODE="FilesOnlyMode" /SECURITYMODE=SQL /SAPWD="[RootPwdVariable]"'
+                  UninstallCommand='/Action=Uninstall /INSTANCENAME="$(var.InstanceName)" /FEATURES=SQLENGINE /QUIET="True" /HIDECONSOLE'
+                  InstallCondition="NOT SqlInstanceKeyFound"
+                  DownloadUrl="https://download.microsoft.com/download/4/1/A/41AD6EDE-9794-44E3-B3D5-A1AF62CD7A6F/sql16_sp2_dlc/en-us/SQLEXPR_x64_ENU.exe"
+                  Name="SQLEXPR_x64_ENU.exe">
+        <RemotePayload Description="SQL Server 2016 Express" ProductName="SQL Server 2016 Express" Size="459167776" Version="13.2.5026.0" Hash="d026cb3bd613ea1a75884e1ca4d64a8e1f5ae68a"/>
+      </ExePackage>-->
+      
+      <!--Запускаем основной проект и параметрами передаем пароли-->
+      <MsiPackage Id="InstallMSI"
+                  SourceFile="$(var.WixToolSet_MSI.TargetDir)WixToolSet_MSI.msi"
+                  DisplayName="Установка MSI"
+                  Visible="yes"
+		              Vital="yes">
+        <MsiProperty Name="APPLICATIONFOLDER" Value="[SourceFolder]"/>
+        <MsiProperty Name="PROPPWDROOT" Value="[RootPwdVariable]" />
+        <MsiProperty Name="PROPPWDUSER" Value="[UserPwdVariable]" />
+      </MsiPackage>
+    </Chain>
+  </Bundle>
+</Wix>
