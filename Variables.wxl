@@ -16,6 +16,4 @@
   <String Id="LabelPasswordUser">Пароль для пользователя:</String>
   <String Id="LabelPasswordRoot">Пароль для рута:</String>
 
-  <String Id="NetRequired">Для установки данного приложения требуется .NET Framework 4.6 или более поздняя версия. Пожалуйста установите приложение и запустите установку повторно.</String>
-
 </WixLocalization>

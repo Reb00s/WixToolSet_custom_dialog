@@ -1,2 +1,0 @@
-C:\soft\projects\!Habr\WixToolSet\command.cmd
-C:\soft\projects\!Habr\WixToolSet\readme.txt

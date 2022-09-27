@@ -1,2 +1,0 @@
-C:\soft\projects\!Habr\WixToolSet\WixToolSet_EXE\bin\Release\WixToolSet_EXE.exe
-C:\soft\projects\!Habr\WixToolSet\WixToolSet_EXE\bin\Release\WixToolSet_EXE.wixpdb

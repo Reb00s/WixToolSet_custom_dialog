@@ -19,11 +19,11 @@
     <Variable Name="UserPwdVariable" Type="string" bal:Overridable="yes" Value="[UserPwdEditbox]" Hidden="yes" />
     <Variable Name="RootPwdVariable" Type="string" bal:Overridable="yes" Value="[RootPwdEditbox]" Hidden="yes" />
 
+    <!--Тут мы указываем программы или пакеты, которые будут предварительно установлены-->
     <Chain>
-      <!--Тут мы указываем программы или пакеты, которые будут предварительно установлены-->
+      
       <!--Для примера покажу тихую установку MS SQL Server 2016-->
-
-      <!--<ExePackage Id="installServer"
+      <!-- <ExePackage Id="installServer"
                   Compressed="no"
                   DisplayName="Установка SQL Server Express 2016"
                   PerMachine="yes"
@@ -36,7 +36,7 @@
                   DownloadUrl="https://download.microsoft.com/download/4/1/A/41AD6EDE-9794-44E3-B3D5-A1AF62CD7A6F/sql16_sp2_dlc/en-us/SQLEXPR_x64_ENU.exe"
                   Name="SQLEXPR_x64_ENU.exe">
         <RemotePayload Description="SQL Server 2016 Express" ProductName="SQL Server 2016 Express" Size="459167776" Version="13.2.5026.0" Hash="d026cb3bd613ea1a75884e1ca4d64a8e1f5ae68a"/>
-      </ExePackage>-->
+      </ExePackage> -->
       
       <!--Запускаем основной проект и параметрами передаем пароли-->
       <MsiPackage Id="InstallMSI"

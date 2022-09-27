@@ -1,2 +1,0 @@
-C:\soft\projects\!Habr\WixToolSet\bin\Release\ru-RU\WixToolSet_MSI.msi
-C:\soft\projects\!Habr\WixToolSet\bin\Release\ru-RU\WixToolSet_MSI.wixpdb

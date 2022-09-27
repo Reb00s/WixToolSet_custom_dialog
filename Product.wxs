@@ -24,19 +24,24 @@
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 	  <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+
+	  <!--Если хотим что бы инсталлятор был одним файлом-->
 	  <MediaTemplate EmbedCab="yes" />
 
+	  <!--Тут указываем иконку проекта-->
 	  <Icon Id="AppIcon" SourceFile="logo.ico"/>
 	  <Property Id="ARPPRODUCTICON" Value="AppIcon"/>
 
+	  <!--Тут указываем лицензионное соглашение-->
 	  <WixVariable Id="WixUILicenseRtf" Overridable="yes" Value="EULA-RU.rtf"/>
 	  <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION"/>
     
     <!--Тут указываем свою UI цепочку диалоговых окон-->
 	  <UIRef Id="MyWixUI_InstallDir"/>
 
-    
+	  <!--Тут указываем картинку для баннера-->
 	  <WixVariable Id="WixUIBannerBmp" Value="Banner.bmp" />
+	  <!--Тут указываем картинку для хедера диалогового окна-->
 	  <WixVariable Id="WixUIDialogBmp" Value="Dialog.bmp" />
     
 	  <Property Id="ApplicationFolderName" Value="My Application Folder" />

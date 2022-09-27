@@ -1,2 +1,0 @@
-C:\soft\projects\Arma187.server_save — копия\bin\Debug\ru-RU\WixToolSet_MSI.msi
-C:\soft\projects\Arma187.server_save — копия\bin\Debug\ru-RU\WixToolSet_MSI.wixpdb
